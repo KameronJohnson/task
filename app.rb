@@ -11,12 +11,13 @@ post("/success") do
   description = params.fetch("description")
   test_task = Task.new(description)
   test_task.save()
+  redirect("/")
 
 
-  erb(:success)
+  #erb(:success)
 end
 
 get("/clear") do
   Task.clear()
-  redirect "/"
+  redirect("/")
 end
