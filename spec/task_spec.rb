@@ -8,4 +8,18 @@ describe(Task) do
       expect(test_task.description()).to(eq("scrubs the zebra"))
     end
   end
+
+  describe(".all") do
+    it("returns empty at first") do
+      expect(Task.all()).to(eq([]))
+    end
+  end
+
+  describe("#save") do
+    it("saves a task to the to do list") do
+      test_task = Task.new("feed the lion")
+      test_task.save()
+      expect(Task.all()).to(eq([test_task]))
+    end
+  end
 end
